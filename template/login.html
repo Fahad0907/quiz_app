@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <title>Login!</title>
+  </head>
+  <body>
+    <div class="bg-warning">
+      {%for message in messages%}
+      <h3 class="text-center">{{message}}</h3>
+      {%endfor%}
+    </div>
+    <h1 class="text-center text-primary mt-5 mb-5">Sign in</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+          <div class="mb-3">
+            <form method="post">
+            {% csrf_token %}
+            <label for="formGroupExampleInput" class="form-label"
+              >Enter User name</label
+            >
+            <input
+              name="username"
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder=""
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label"
+              >Enter password</label
+            >
+            <input
+              name="password"
+              type="password"
+              class="form-control"
+              id="formGroupExampleInput2"
+              placeholder=""
+              required
+            />
+          </div>
+          <p>
+            Not have an account?
+            <a href="{% url 'signup' %}">Signup</a>
+          </p>
+          <div class="text-center mt-5">
+            <button type="submit" class="btn btn-outline-success">
+              sign in
+            </button>
+          </div>
+        </form>
+        </div>
+        <div class="col-lg-3"></div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
